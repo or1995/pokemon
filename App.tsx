@@ -6,41 +6,30 @@
  */
 
 import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
-
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import {SafeAreaView, StyleSheet} from 'react-native';
 import {Provider} from 'react-redux';
 import {store} from './store/store';
+import {TabNavigation} from './tabNavigations/tabNavigation';
+import {NavigationContainer} from '@react-navigation/native';
 
 function App(): JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
   return (
     <Provider store={store}>
-      <div></div>
+      <>
+        <SafeAreaView style={styles.container}>
+          <NavigationContainer>
+            <TabNavigation />
+          </NavigationContainer>
+        </SafeAreaView>
+      </>
     </Provider>
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
 
 export default App;
