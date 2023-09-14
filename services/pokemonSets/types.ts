@@ -35,3 +35,13 @@ export interface ISetDetailsRecord {
   };
   symbol: string;
 }
+
+export interface IGetSetsResponse {
+  data: ISetSummaryRecord[];
+  error?: string;
+}
+
+export interface ISetDetailsResponse {
+  data: ISetDetailsRecord;
+  error?: string;
+}

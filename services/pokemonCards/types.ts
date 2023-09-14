@@ -65,3 +65,18 @@ export interface ICardDetailsRecord {
     expanded: boolean;
   };
 }
+
+export interface IGetCardsResponse {
+  data: ICardSummaryRecord[];
+  error?: string;
+}
+
+export interface IGetFilteredCardsResponse {
+  data: {cards: ICardSummaryRecord[]};
+  error?: string;
+}
+
+export interface ICardDetailsResponse {
+  data: ICardDetailsRecord;
+  error?: string;
+}

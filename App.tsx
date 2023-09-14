@@ -9,16 +9,18 @@ import React from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
 import {Provider} from 'react-redux';
 import {store} from './store/store';
-import {TabNavigation} from './tabNavigations/tabNavigation';
 import {NavigationContainer} from '@react-navigation/native';
+import {colors} from './constants/colors';
+import {TabNavigator} from './screens/TabNavigator/TabNavigator';
 
 function App(): JSX.Element {
   return (
     <Provider store={store}>
       <>
         <SafeAreaView style={styles.container}>
+          {/*<LogoBar />*/}
           <NavigationContainer>
-            <TabNavigation />
+            <TabNavigator />
           </NavigationContainer>
         </SafeAreaView>
       </>
@@ -29,6 +31,7 @@ function App(): JSX.Element {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: colors.WHITE,
   },
 });
 

@@ -1,12 +1,18 @@
-import {IErrorResponse} from '../types';
-import {ICardDetailsRecord, ICardSummaryRecord} from './types';
+import {
+  ICardDetailsResponse,
+  IGetCardsResponse,
+  IGetFilteredCardsResponse,
+} from './types';
 import axios from 'axios';
 
 export const PokemonCardRequests = {
-  getAllCards(): Promise<ICardSummaryRecord[] | IErrorResponse> {
+  getAllCards(): Promise<IGetCardsResponse> {
     return axios.get(`https://api.tcgdex.net/v2/en/cards`);
   },
-  getSingleCard(id: string): Promise<ICardDetailsRecord | IErrorResponse> {
-    return axios.get(`https://api.tcgdex.net/v2/:lang/cards/${id}`);
+  getSingleCard(id: string): Promise<ICardDetailsResponse> {
+    return axios.get(`https://api.tcgdex.net/v2/en/cards/${id}`);
+  },
+  getFilteredCards(value: string): Promise<IGetFilteredCardsResponse> {
+    return axios.get(`https://api.tcgdex.net/v2/en/hp/${value}`);
   },
 };

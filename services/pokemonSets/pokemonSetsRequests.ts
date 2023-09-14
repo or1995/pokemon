@@ -1,12 +1,11 @@
-import {IErrorResponse} from '../types';
-import {ISetDetailsRecord, ISetSummaryRecord} from './types';
+import {IGetSetsResponse, ISetDetailsResponse} from './types';
 import axios from 'axios';
 
 export const PokemonSetsRequests = {
-  getAllSets(): Promise<ISetSummaryRecord[] | IErrorResponse> {
+  getAllSets(): Promise<IGetSetsResponse> {
     return axios.get(`https://api.tcgdex.net/v2/en/sets`);
   },
-  getSingleSet(id: string): Promise<ISetDetailsRecord | IErrorResponse> {
+  getSingleSet(id: string): Promise<ISetDetailsResponse> {
     return axios.get(`https://api.tcgdex.net/v2/en/sets/${id}`);
   },
 };

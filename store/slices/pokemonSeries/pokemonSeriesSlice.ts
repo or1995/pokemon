@@ -11,7 +11,11 @@ export const pokemonSeriesInitialState: IPokemonSeriesState = {
 const pokemonSeriesSlice = createSlice({
   name: 'pokemonSeries',
   initialState: pokemonSeriesInitialState,
-  reducers: {},
+  reducers: {
+    clearSerieDetails(state) {
+      state.SerieDetails = undefined;
+    },
+  },
   extraReducers: builder => {
     builder.addCase(getAllSeriesThunk.fulfilled, (state, action) => {
       state.seriesRecords = action.payload;
@@ -36,5 +40,5 @@ const pokemonSeriesSlice = createSlice({
   },
 });
 
-export const {} = pokemonSeriesSlice.actions;
+export const {clearSerieDetails} = pokemonSeriesSlice.actions;
 export default pokemonSeriesSlice.reducer;

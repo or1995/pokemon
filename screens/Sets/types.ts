@@ -1,5 +1,12 @@
-export interface ISetsStateProps {}
+import {ISetSummaryRecord} from '../../services/pokemonSets/types';
 
-export interface ISetsDispatchProps {}
+export interface ISetsStateProps {
+  sets: ISetSummaryRecord[];
+  isSetsLoaded: boolean;
+}
 
-export interface ISetsProps {}
+export interface ISetsDispatchProps {
+  onLoadData: () => void;
+}
+
+export interface ISetsProps extends ISetsStateProps, ISetsDispatchProps {}

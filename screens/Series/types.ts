@@ -1,5 +1,12 @@
-export interface ISeriesStateProps {}
+import {ISerieSummaryRecord} from '../../services/pokemonSeries/types';
 
-export interface ISeriesDispatchProps {}
+export interface ISeriesStateProps {
+  series: ISerieSummaryRecord[];
+  isSeriesLoaded: boolean;
+}
 
-export interface ISeriesProps {}
+export interface ISeriesDispatchProps {
+  onLoadData: () => void;
+}
+
+export interface ISeriesProps extends ISeriesStateProps, ISeriesDispatchProps {}

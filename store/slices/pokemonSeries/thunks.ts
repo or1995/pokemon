@@ -1,5 +1,4 @@
 import {createAsyncThunk} from '@reduxjs/toolkit';
-import {IErrorResponse} from '../../../services/types';
 import {
   ISerieDetailsRecord,
   ISerieSummaryRecord,
@@ -10,8 +9,8 @@ export const getAllSeriesThunk = createAsyncThunk(
   'series/getAll',
   async (): Promise<ISerieSummaryRecord[]> => {
     const response = await PokemonSeriesRequests.getAllSeries();
-    if (!(response as IErrorResponse).error) {
-      return response as ISerieSummaryRecord[];
+    if (!response.error) {
+      return response.data;
     }
     return Promise.reject();
   },
@@ -21,8 +20,8 @@ export const getSerieDetailsThunk = createAsyncThunk(
   'series/getDetails',
   async (id: string): Promise<ISerieDetailsRecord> => {
     const response = await PokemonSeriesRequests.getSingleSerie(id);
-    if (!(response as IErrorResponse).error) {
-      return response as ISerieDetailsRecord;
+    if (!response.error) {
+      return response.data;
     }
     return Promise.reject();
   },

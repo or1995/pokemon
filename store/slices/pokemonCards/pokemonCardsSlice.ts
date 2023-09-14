@@ -15,6 +15,9 @@ const pokemonCardsSlice = createSlice({
     setCardFilterValue(state, action: PayloadAction<string>) {
       state.cardFilterValue = action.payload;
     },
+    clearCardDetails(state) {
+      state.cardDetails = undefined;
+    },
   },
   extraReducers: builder => {
     builder.addCase(getAllCardsThunk.fulfilled, (state, action) => {
@@ -40,5 +43,5 @@ const pokemonCardsSlice = createSlice({
   },
 });
 
-export const {setCardFilterValue} = pokemonCardsSlice.actions;
+export const {setCardFilterValue, clearCardDetails} = pokemonCardsSlice.actions;
 export default pokemonCardsSlice.reducer;

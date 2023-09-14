@@ -1,7 +1,14 @@
 export enum colors {
-  BLUE = '#276FBF',
+  LIGHT_BLUE = '#9DBCE8',
+  BLUE = '#205BAB',
   DARK_BLUE = '#183059',
   PURPLE = '#562FFB',
   SMOKE_WHITE = '#F6F4F3',
-  SOFT_BLACK = '#0C1713',
+  SOFT_BLACK = '#404249',
+  BUTTON_BACK = '#EFF4FB',
+  WHITE = '#FFFFFF',
+  BACKGROUND = '#F7F7F7',
+  YELLOW = '#FFCC00',
+  YELLOW_DARK = '#ECBD00',
+  GRAY = '#F2F2F2',
 }
